@@ -10,7 +10,23 @@ A megoldott feladatokat a kiirt_adatok nevű mappába hozd létre statisztika.tx
 """
 
 
-print("A beolvasott fájlban összesen ____ versenyző szerepel.")
-print("A legtöbb futamot nyert versenyző: ____")
-print("A legtöbb futamot teljesített versenyző: ____")
-print("Az átlagos futamszám: ____")
+
+forrasfajl = open('beolvasando_adatok/f1.txt', 'r', encoding='utf-8')
+
+adat = []
+
+with open('beolvasando_adatok/f1.txt', 'r', encoding='utf-8') as forrasfajl:
+    for sor in forrasfajl:
+        nev, csapat, gyozelmek_szama, teljitesett_futamok_szama = sor.strip().split(';')
+        adat.append([nev, csapat, gyozelmek_szama, teljitesett_futamok_szama])
+
+max_verseny = max(adat, key=lambda x: (x[2]))
+
+maxim_teljesitett = max(adat, key=lambda x: (x[3]))
+
+adat = 
+
+print(f"A beolvasott fájlban összesen {adat} versenyző szerepel.")
+print(f"A legtöbb futamot nyert versenyző: {max_verseny} ")
+print(f"A legtöbb futamot teljesített versenyző: {maxim_teljesitett}")
+print(f"Az átlagos futamszám: ____")
